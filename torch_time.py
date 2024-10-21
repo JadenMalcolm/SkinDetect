@@ -36,7 +36,7 @@ data['label'] = data['dx'].map(lambda x: {'nv': 0, 'mel': 1, 'bkl': 2, 'bcc': 3,
 data['path'] = data['image_id'].map(imageid_path_dict.get)
 
 # Handle null values (if any)
-data['age'].fillna(value=int(data['age'].mean()), inplace=True)
+data['age'].fillna(value=int(data['age'].mean()))
 data['age'] = data['age'].astype('int32')
 
 # Define transformations for augmentation and normalization
@@ -65,19 +65,16 @@ class SkinLesionDataset(Dataset):
         img_path = self.img_paths[idx]
         label = self.labels[idx]
         
-        # Load the image
-        img = Image.open(img_path).convert('RGB')  # Ensure image is in RGB format
+        img = Image.open(img_path).convert('RGB')
         
         if self.transform:
             img = self.transform(img)
         
         return img, label
 
-# Create datasets
 train_dataset = SkinLesionDataset(X_train, y_train, transform=transform)
 test_dataset = SkinLesionDataset(X_test, y_test, transform=transform)
 
-# Create DataLoader
 train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True)
 test_loader = DataLoader(test_dataset, batch_size=64, shuffle=False)
 
