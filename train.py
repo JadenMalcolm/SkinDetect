@@ -2,7 +2,7 @@ import torch
 from torch.utils.data import DataLoader
 
 
-def train_model(model, train_loader, criterion, optimizer, num_epochs=10, device='cpu'):
+def train_model(model, train_loader, criterion, optimizer, num_epochs=1, device='cpu'):
     model.to(device)
     model.train()
     
@@ -11,8 +11,8 @@ def train_model(model, train_loader, criterion, optimizer, num_epochs=10, device
         correct_predictions = 0
         total_samples = 0
         
-        for inputs, labels in train_loader:
-            inputs, labels = inputs.to(device), labels.to(device)
+        for inputs, labels, paths in train_loader:
+            inputs, labels. paths = inputs.to(device), labels.to(device)
             optimizer.zero_grad()
             
             outputs = model(inputs)

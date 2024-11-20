@@ -14,3 +14,7 @@ LESION_TYPE_DICT = {
     'vasc': 'Vascular lesions (vasc)',
     'df': 'Dermatofibroma (df)'
 }
+LESION_NUM_DICT = {
+    'nv': 0, 'mel': 1, 'bkl': 2, 'bcc': 3,
+    'akiec': 4, 'vasc': 5, 'df': 6
+}

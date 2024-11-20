@@ -19,4 +19,4 @@ class SkinLesionDataset(Dataset):
         if self.transform:
             img = self.transform(img)
 
-        return img, label
+        return img, label, img_path
