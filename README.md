@@ -1,2 +1,2 @@
 # SoftwareEng
-Skin cancer detection algorithm
+Skin cancer detection machine learning model
